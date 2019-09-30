@@ -7,7 +7,7 @@
 <body>
 <div class="form-style-2">
     <div class="form-style-2-heading">
-        Зарегистрируйтесь!
+       Login
     </div>
     <form method="post" action="/signUp">
         <label for="login">Логин

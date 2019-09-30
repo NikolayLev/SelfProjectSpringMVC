@@ -27,6 +27,11 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
+
     @OneToMany(mappedBy = "owner")
     private List<Product> productList;
 
