@@ -29,6 +29,7 @@
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/css/styles.css" location="static/css"/>
+    <mvc:resources mapping="/css/bootstrap.min.css" location="static/css"/>
 
 
 </beans>

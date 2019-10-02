@@ -50,6 +50,8 @@
     box-shadow: 1px 1px 4px #EBEBEB;
     -moz-box-shadow: 1px 1px 4px #EBEBEB;
     -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    height: 24px; // высота на свое усмотрение
+    width: 120px;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
