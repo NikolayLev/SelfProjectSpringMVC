@@ -28,8 +28,8 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column
-    private String uploadPhoto;
+    @Column(name = "uploadphoto")
+    private String uploadPhoto;//путь к аватару юзера(скинуть в отдельную СУБД все файлы)
 
     @Enumerated(value = EnumType.STRING)
     private Role role;

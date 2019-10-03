@@ -18,12 +18,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import ru.levchenko.service.models.User;
+import ru.levchenko.service.repositories.UsersRepository;
 import ru.levchenko.service.storage.StorageException;
 
 @Service
 public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
+
+    @Autowired
+    private UsersRepository usersRepository;
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
@@ -34,7 +39,7 @@ public class FileSystemStorageService implements StorageService {
 
 
     @Override
-    public void store(MultipartFile file) {
+    public void store(MultipartFile file, User user) {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         String uuidFile = UUID.randomUUID().toString();
         String resultFileName = uuidFile+"."+filename;
@@ -50,6 +55,8 @@ public class FileSystemStorageService implements StorageService {
                                 + filename);
             }
             try (InputStream inputStream = file.getInputStream()) {
+                user.setUploadPhoto(resultFileName);
+                usersRepository.save(user);
                 Files.copy(inputStream, this.rootLocation.resolve(resultFileName),
                         StandardCopyOption.REPLACE_EXISTING);
             }

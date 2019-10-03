@@ -15,7 +15,9 @@
         </table>
     </form>
 </div>
-<img src="/img/28f96fa7-7700-494a-b56c-a90fc5ca5762.dhkFaC8lVhQ.jpg">
+<#if image??>
+<img src="/img/${image}">
+</#if>
 
 
 </body>

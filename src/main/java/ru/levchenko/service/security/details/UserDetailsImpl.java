@@ -53,6 +53,7 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return user.getState().equals(State.ACTIVE);
     }
+
     public User getUser() {
         return user;
     }

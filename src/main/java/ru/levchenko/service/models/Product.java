@@ -25,7 +25,7 @@ public class Product {
     @Column(name = "description")
     private String description;//описание товара
     //Добавить класс дата для отображенния времени добавления товара
-    private String fileName;//путь к фото товара
+    private String fileName;//путь к фото товара(добавить отдельную табличку под файлы)
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
