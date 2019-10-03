@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import ru.levchenko.service.models.Role;
+import ru.levchenko.service.storage.StorageProperties;
 
 
 import javax.sql.DataSource;
@@ -40,12 +41,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/").authenticated()
                     .antMatchers("signUp/**").permitAll()
+                    .antMatchers("uploadForm/**").permitAll()
                 .and().formLogin()
                     .usernameParameter("login")
                     .passwordParameter("password")
                     .defaultSuccessUrl("/")
                     .failureUrl("/login?error")
-
                     .loginPage("/login")
                     .permitAll()
                  .and().rememberMe()
@@ -72,4 +73,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
+
 }

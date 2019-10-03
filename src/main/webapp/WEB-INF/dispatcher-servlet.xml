@@ -20,6 +20,10 @@
         <property name="suffix" value=".ftl"/>
         <property name="contentType" value="text/html;charset=UTF-8"/>
     </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10000000"/>
+    </bean>
+
 
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/views/"/>
@@ -30,6 +34,7 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/css/styles.css" location="static/css"/>
     <mvc:resources mapping="/css/bootstrap.min.css" location="static/css"/>
+    <mvc:resources mapping="/img/**" location="files/"/>
 
 
 </beans>
